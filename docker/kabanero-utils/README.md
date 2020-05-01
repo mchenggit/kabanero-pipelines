@@ -30,10 +30,10 @@ This script has the logic to change docker-image resource url with image_name as
 
 It has 2 usage scenarios:
 
-  1: in usecases where input params 'docker-imagename=appsodyMPversion' and 'docker-imagetag=abcDEF' is present and the'docker-image' url= image-registry.openshift-image-registry.svc:5000/kabanero
+  1. in usecases where input params 'docker-imagename=appsodyMPversion' and 'docker-imagetag=abcDEF' is present and the'docker-image' url= image-registry.openshift-image-registry.svc:5000/kabanero
   Then output should be the url with docker-imagename 'appsodyMPversion' as lowercase, OutputURL = 'image-registry.openshift-image-registry.svc:5000/kabanero/appsodympversion:abcDEF'
  
-  2: in jenkins case where input param 'docker-imagename' and 'docker-imagetag' are empty ,and if 'docker-image' url=docker.io/abcd, and if the 'app-deploy.yaml' file has 'name=java-MP-project' 
+  2. in jenkins case where input param 'docker-imagename' and 'docker-imagetag' are empty ,and if 'docker-image' url=docker.io/abcd, and if the 'app-deploy.yaml' file has 'name=java-MP-project' 
   Then first the url is constructed from 'app-deploy.yaml' file from the github application project. Secondly the imagename in the url is converted to lowercase.
   Output should be a constructed url and lowercase 'docker-imagename=java-mp-project', OutputURL = 'docker.io/abcd/java-mp-project' 
 
