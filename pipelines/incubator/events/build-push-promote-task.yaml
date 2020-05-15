@@ -39,6 +39,8 @@ spec:
     type: string
   - name: webhooks-tekton-gitops-commit-email
     type: string
+  - name: webhooks-tekton-github-secret-name
+    type: string
   steps:
   - name: enforce-stack-policy-pre-build
     # This step enforces the pre build stack governance policy configured in the Kabanero CR.
@@ -296,7 +298,7 @@ spec:
     - name: GITHUB_TOKEN
       valueFrom:
         secretKeyRef:
-          name: gitops-token
+          name: $(params.webhooks-tekton-github-secret-name)
           key: password
           optional: true
     volumeMounts:
